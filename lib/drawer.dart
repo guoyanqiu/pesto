@@ -21,8 +21,8 @@ class _BackdropDemoState extends State<BackdropDemo>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 300),
-      value: 2.0,
+//      duration: const Duration(milliseconds: 300),
+//      value: 2.0,
       //vsync对象会绑定动画的定时器到一个可视的widget，所以当widget不显示时，
       // 动画定时器将会暂停，当widget再次显示时，动画定时器重新恢复执行，这样就可以避免动画相关UI不在当前屏幕时消耗资源。
       // 如果要使用自定义的State对象作为vsync时，请包含TickerProviderStateMixin。
@@ -44,17 +44,27 @@ class _BackdropDemoState extends State<BackdropDemo>
   }
 
   void _toggleBackdropPanelVisibility() {
+    print("is visiable=="+_backdropPanelVisible.toString());
     //-值关闭，+值打开
     //例如，fling()函数允许您提供速度(velocity)、力量(force)、position(通过Force对象)
-    _controller.fling(velocity: _backdropPanelVisible ? -2.0 : 2.0);
+    _controller.fling(velocity: _backdropPanelVisible ? -1.0 : 1.0);
+    print("is visiable------"+_backdropPanelVisible.toString());
   }
 
-
+//关于BoxConstraints的说明https://book.flutterchina.club/chapter5/constrainedbox_and_sizebox.html
+  //BoxConstraints什么时候初始化的
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {
     const double panelTitleHeight = 48.0;
     final Size panelSize = constraints.biggest;
     final double panelTop = panelSize.height - panelTitleHeight;
 
+    print("panelSize=="+panelSize.height.toString());//-48
+    print("panelTop=="+panelTop.toString());//-48
+    print("bottom=="+(panelTop - panelSize.height).toString());//-48
+    print("top=="+(panelTop - MediaQuery
+        .of(context)
+        .padding
+        .bottom).toString());//555
     final Animation<RelativeRect> panelAnimation = _controller.drive(
       RelativeRectTween(
         begin: RelativeRect.fromLTRB(
@@ -64,7 +74,8 @@ class _BackdropDemoState extends State<BackdropDemo>
               .padding
               .bottom,
           0.0,
-          panelTop - panelSize.height,
+//          panelTop - panelSize.height,
+          panelTop - panelSize.height,//是负值
         ),
         end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
       ),
@@ -91,7 +102,7 @@ class _BackdropDemoState extends State<BackdropDemo>
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   GestureDetector(
-                    behavior: HitTestBehavior.opaque,
+                    //点击标题打开或者关闭界面
                     onTap: _toggleBackdropPanelVisibility,
                     child: Container(
                       height: 48.0,
@@ -106,7 +117,7 @@ class _BackdropDemoState extends State<BackdropDemo>
                     color: Colors.red,
                   ),
                   Center(
-                    child: Text("抽拉效果"),
+                    child: Text("显示内容区域"),
                   ),
                 ],
               ),
@@ -122,6 +133,7 @@ class _BackdropDemoState extends State<BackdropDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Center(child:Text("抽屉效果")),
         elevation: 0.0,
       ),
       body: LayoutBuilder(
