@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/CurvedAnimation.dart';
+import 'package:flutter_app/AnimationStatusDemo.dart';
 import 'package:flutter_app/drawer.dart';
 
 void main() => runApp(MyApp());
@@ -10,10 +12,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
-      home:BackdropDemo(),
+//      home:BackdropDemo(),
+//      home:ScaleImageDemo(),
+      home:CurvedScaleImageDemo(),
     );
   }
 }
