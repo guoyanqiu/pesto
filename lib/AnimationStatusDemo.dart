@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-/// 图片宽高匀速放大和缩小
+/// 图片宽高匀速循环放大和缩小
 class ScaleImageDemo extends StatefulWidget {
   @override
   _ScaleImageState createState() => _ScaleImageState();
@@ -33,6 +33,7 @@ class _ScaleImageState extends State<ScaleImageDemo>  with SingleTickerProviderS
 
   @override
   Widget build(BuildContext context) {
+    /// 从这里可以看出，animation其实和wiget是无关的
     return new Center(
       child: Image.asset("images/111.png",
           width: animation.value,
