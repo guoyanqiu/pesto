@@ -82,17 +82,22 @@ class _StaggerDemoState extends State<StaggerDemo>
       behavior: HitTestBehavior.opaque,
       onTap: _playAnimation,
       child: Center(
-        child: Container(
-          width: 300.0,
-          height: 300.0,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(
-              color: Colors.green
-            )
-          ),
-          child: _StaggerAnimation(controller: _controller,),
-        ),
+        child: Column(
+          children: <Widget>[
+            Text("点击空白区域"),
+            Container(
+              width: 300.0,
+              height: 300.0,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(
+                      color: Colors.green
+                  )
+              ),
+              child: _StaggerAnimation(controller: _controller,),
+            ),
+          ],
+        )
       ),
     );
   }

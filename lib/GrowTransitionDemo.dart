@@ -49,7 +49,7 @@ class _ScaleImageState extends State<GrowTransitionDemo>
   @override
   Widget build(BuildContext context) {
     return _GrowTransition(
-      child: Image.asset("images/snow.jpg"),
+      child: Image.asset("images/beauty5.jpg"),
       animation: animation,
     );
   }

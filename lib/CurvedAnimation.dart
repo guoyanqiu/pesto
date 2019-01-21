@@ -29,9 +29,9 @@ class _ScaleImageState extends State<CurvedScaleImageDemo>  with SingleTickerPro
   @override
   Widget build(BuildContext context) {
     return new Center(
-      child: Image.asset("images/111.png",
-          width: 100,
-          height: 100
+      child: Image.asset("images/beauty3.jpg",
+          width: animation.value,
+          height: animation.value
       ),
     );
   }

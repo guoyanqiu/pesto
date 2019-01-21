@@ -35,7 +35,7 @@ class _ScaleImageState extends State<ScaleImageDemo>  with SingleTickerProviderS
   Widget build(BuildContext context) {
     /// 从这里可以看出，animation其实和wiget是无关的
     return new Center(
-      child: Image.asset("images/111.png",
+      child: Image.asset("images/beauty1.jpg",
           width: animation.value,
           height: animation.value
       ),

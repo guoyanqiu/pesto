@@ -26,7 +26,7 @@ class _ScaleImageState extends State<TweenDemo>  with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return new Center(
-      child: Image.asset("images/111.png",
+      child: Image.asset("images/beauty12.png",
           width: animation.value,
           height: animation.value
       ),

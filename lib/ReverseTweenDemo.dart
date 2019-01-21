@@ -28,7 +28,7 @@ class _ScaleImageState extends State<ReverseTweenDemo>  with SingleTickerProvide
   @override
   Widget build(BuildContext context) {
     return new Center(
-      child: Image.asset("images/111.png",
+      child: Image.asset("images/beauty2.jpg",
           width: animation.value,
           height: animation.value
       ),
