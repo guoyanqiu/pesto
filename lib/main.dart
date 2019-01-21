@@ -5,6 +5,7 @@ import 'package:flutter_app/AnimationStatusDemo.dart';
 import 'package:flutter_app/GrowTransitionDemo.dart';
 import 'package:flutter_app/ReverseTweenDemo.dart';
 import 'package:flutter_app/StaggerAnimation.dart';
+import 'package:flutter_app/TweenColorDemo.dart';
 import 'package:flutter_app/drawer.dart';
 
 void main() => runApp(AnimationDemo());
@@ -12,7 +13,7 @@ class AnimationDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "CookBook",
+        title: "Animation Demo",
         home: AnimationHome()
     );
   }
@@ -46,6 +47,15 @@ class AnimationHome extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(
                       builder: (context) => ScaleImageDemo()
+                  )
+              );
+            },
+          ), ListTile(
+            title: Text("ColorTween的简单使用"),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(
+                      builder: (context) => TweenColorDemo()
                   )
               );
             },
