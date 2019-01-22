@@ -31,10 +31,15 @@ class _ScaleImageState extends State<TweenColorDemo>  with SingleTickerProviderS
           elevation: 0.0,
         ),
         body:  Center(
-            child: Container(
-              color: animation.value,
-              width: 50.0,
-              height: 300,
+            child:Column(
+              children: <Widget>[
+                Text("颜色从绿色逐渐变成红色"),
+                Container(
+                  color: animation.value,
+                  width: 50.0,
+                  height: 300,
+                )
+              ],
             )
         )
       );
