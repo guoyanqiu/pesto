@@ -29,7 +29,7 @@ class _StaggerAnimation extends StatelessWidget {
 
     padding = Tween<EdgeInsets>(
             begin: EdgeInsets.only(left: 0.0),
-            end: EdgeInsets.only(left: 200.0))
+            end: EdgeInsets.only(left: 250.0))
         .animate(CurvedAnimation(
             parent: controller, curve: Interval(0.6, 1.0, curve: Curves.ease)
 
@@ -44,6 +44,7 @@ class _StaggerAnimation extends StatelessWidget {
       animation: controller,
     );
   }
+
 
   ///widget 参数没用到
   Widget _buildWidget(BuildContext context, Widget child) {
@@ -76,31 +77,40 @@ class _StaggerDemoState extends State<StaggerDemo>
         duration: Duration(seconds: 3), vsync: this);
   }
 
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: _playAnimation,
-      child: Center(
-        child: Column(
-          children: <Widget>[
-            Text("点击空白区域"),
-            Container(
-              width: 300.0,
-              height: 300.0,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(
-                      color: Colors.green
-                  )
-              ),
-              child: _StaggerAnimation(controller: _controller,),
-            ),
-          ],
+    return Scaffold(
+        appBar: AppBar(
+          title: Center(child:Text("AnimatedBuilder的简单使用")),
+          elevation: 0.0,
+        ),
+        body: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: _playAnimation,
+          child: Center(
+              child: Column(
+                children: <Widget>[
+                  Text("点击灰色区域"),
+                  Container(
+                    width: 300.0,
+                    height: 300.0,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        border: Border.all(
+                            color: Colors.green
+                        )
+                    ),
+                    child: _StaggerAnimation(controller: _controller,),
+                  ),
+                ],
+              )
+          ),
         )
-      ),
     );
+    /// 从这里可以看出，animation其实和wiget是无关的
   }
+
 //
   Future<Null> _playAnimation() async {
     try {

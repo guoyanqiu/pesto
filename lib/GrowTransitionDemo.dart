@@ -48,11 +48,19 @@ class _ScaleImageState extends State<GrowTransitionDemo>
 
   @override
   Widget build(BuildContext context) {
-    return _GrowTransition(
-      child: Image.asset("images/beauty5.jpg"),
-      animation: animation,
+    return Scaffold(
+        appBar: AppBar(
+          title: Center(child:Text("AnimatedBuilder的简单使用")),
+          elevation: 0.0,
+        ),
+        body:_GrowTransition(
+          child: Image.asset("images/beauty5.jpg"),
+          animation: animation,
+        )
     );
+    /// 从这里可以看出，animation其实和wiget是无关的
   }
+
 
   @override
   dispose() {

@@ -25,13 +25,20 @@ class _ScaleImageState extends State<TweenColorDemo>  with SingleTickerProviderS
 
   @override
   Widget build(BuildContext context) {
-    return new Center(
-      child: Container(
-        color: animation.value,
-        width: 50.0,
-        height: 300,
-      )
-    );
+      return Scaffold(
+        appBar: AppBar(
+          title: Center(child:Text("ColorTween的简单使用")),
+          elevation: 0.0,
+        ),
+        body:  Center(
+            child: Container(
+              color: animation.value,
+              width: 50.0,
+              height: 300,
+            )
+        )
+      );
+      /// 从这里可以看出，animation其实和wiget是无关的
   }
   @override
   dispose() {

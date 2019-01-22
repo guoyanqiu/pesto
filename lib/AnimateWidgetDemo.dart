@@ -47,8 +47,16 @@ class _ScaleAnimationState extends State<AnimatedWidgetDemo>
 
   @override
   Widget build(BuildContext context) {
-    return _AnimatedWidget(animation: animation);
+    return Scaffold(
+        appBar: AppBar(
+          title: Center(child:Text("AnimatedWidget的简单使用")),
+          elevation: 0.0,
+        ),
+        body:_AnimatedWidget(animation: animation)
+    );
+    /// 从这里可以看出，animation其实和wiget是无关的
   }
+
 
   dispose() {
     //路由销毁时需要释放动画资源

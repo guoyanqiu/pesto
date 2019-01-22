@@ -33,13 +33,19 @@ class _ScaleImageState extends State<ScaleImageDemo>  with SingleTickerProviderS
 
   @override
   Widget build(BuildContext context) {
-    /// 从这里可以看出，animation其实和wiget是无关的
-    return new Center(
-      child: Image.asset("images/beauty1.jpg",
-          width: animation.value,
-          height: animation.value
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child:Text("Tween的简单使用")),
+        elevation: 0.0,
+      ),
+      body: Center(
+        child: Image.asset("images/beauty1.jpg",
+            width: animation.value,
+            height: animation.value
+        ),
       ),
     );
+    /// 从这里可以看出，animation其实和wiget是无关的
   }
   @override
   dispose() {
