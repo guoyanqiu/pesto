@@ -26,7 +26,7 @@ class AnimationHome extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("CookBook demo"),
+        title: Text("Animation demo"),
       ),
       body: ListView(
         children: <Widget>[
