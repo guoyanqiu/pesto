@@ -15,8 +15,8 @@ class _ScaleImageState extends State<ScaleImageDemo>  with SingleTickerProviderS
 
     controller =  AnimationController(
         duration: const Duration(seconds: 3), vsync: this);
-    Tween<double> tween =  Tween(begin: 300, end: 0);
-    animation  = ReverseTween(tween).animate(controller)
+    Tween<double> tween =  Tween(begin: 0, end: 300);
+    animation  = tween.animate(controller)
       ..addListener(() {
         setState(()=>{});
       })..addStatusListener((status){
