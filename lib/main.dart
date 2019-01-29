@@ -3,6 +3,7 @@ import 'package:flutter_app/AnimateWidgetDemo.dart';
 import 'package:flutter_app/CurvedAnimation.dart';
 import 'package:flutter_app/AnimationStatusDemo.dart';
 import 'package:flutter_app/GrowTransitionDemo.dart';
+import 'package:flutter_app/PositionedTransitionDemo.dart';
 import 'package:flutter_app/ReverseTweenDemo.dart';
 import 'package:flutter_app/StaggerAnimation.dart';
 import 'package:flutter_app/TweenColorDemo.dart';
@@ -108,6 +109,16 @@ class AnimationHome extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(
                       builder: (context) => StaggerDemo()
+                  )
+              );
+            },
+          ),
+          ListTile(
+            title: Text("PositionTransaction的简单使用"),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(
+                      builder: (context) => PTDemo()
                   )
               );
             },

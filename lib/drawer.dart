@@ -57,32 +57,49 @@ class _BackdropDemoState extends State<BackdropDemo>
     const double panelTitleHeight = 48.0;
     final Size panelSize = constraints.biggest;
     final double panelTop = panelSize.height - panelTitleHeight;
-
-    print("panelSize=="+panelSize.height.toString());//-48
-    print("panelTop=="+panelTop.toString());//-48
-    print("bottom=="+(panelTop - panelSize.height).toString());//-48
-    print("top=="+(panelTop - MediaQuery
-        .of(context)
-        .padding
-        .bottom).toString());//555
-    final Animation<RelativeRect> panelAnimation = _controller.drive(
-      RelativeRectTween(
-        begin: RelativeRect.fromLTRB(
-          0.0,
-          panelTop - MediaQuery
-              .of(context)
-              .padding
-              .bottom,
-          0.0,
+//
+//    print("panelSize=="+panelSize.height.toString());//-48
+//    print("panelTop=="+panelTop.toString());//-48
+//    print("bottom=="+(panelTop - panelSize.height).toString());//-48
+//    print("top=="+(panelTop - MediaQuery
+//        .of(context)
+//        .padding
+//        .bottom).toString());//555
+    ///方式1
+//    final Animation<RelativeRect> panelAnimation = _controller.drive(
+//      RelativeRectTween(
+//        begin: RelativeRect.fromLTRB(
+//          0.0,
+//          panelTop - MediaQuery
+//              .of(context)
+//              .padding
+//              .bottom,
+//          0.0,
 //          panelTop - panelSize.height,
-          panelTop - panelSize.height,//是负值
-        ),
-        end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
+//
+//        ),
+//        end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
+//      ),
+//    );
+
+    ///写法2
+    RelativeRectTween rectTwee=  RelativeRectTween(
+      begin: RelativeRect.fromLTRB(
+        0.0,
+        panelTop - MediaQuery
+            .of(context)
+            .padding
+            .bottom,
+        0.0,
+        panelTop - panelSize.height,
+
       ),
+      end: const RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
     );
 
+    final Animation<RelativeRect> panelAnimation = rectTwee.animate(_controller);
     final ThemeData theme = Theme.of(context);
-
+//https://flutterchina.club/widgets/widgetindex/
     return Container(
       key: _backdropKey,
       color: theme.primaryColor,
@@ -142,3 +159,5 @@ class _BackdropDemoState extends State<BackdropDemo>
     );
   }
 }
+
+
