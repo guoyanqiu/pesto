@@ -12,17 +12,14 @@ import 'package:flutter_app/TweenColorDemo.dart';
 import 'package:flutter_app/drawer.dart';
 
 void main() => runApp(AnimationDemo());
-class AnimationDemo extends StatelessWidget{
+
+class AnimationDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "Animation Demo",
-        home: AnimationHome()
-    );
+    return MaterialApp(title: "Animation Demo", home: AnimationHome());
   }
-
 }
-//https://blog.csdn.net/nimeghbia/article/details/84388725
+
 class AnimationHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,123 +28,36 @@ class AnimationHome extends StatelessWidget {
       appBar: AppBar(
         title: Text("Animation demo"),
       ),
-      body: ListView(
-        children: <Widget>[
-
-          ListTile(
-            title: Text("抽拉效果"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => BackdropDemo()
-                  )
-              );
-            },
-          ),
-          ListTile(
-            title: Text("Tween的简单使用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => ScaleImageDemo()
-                  )
-              );
-            },
-          ), ListTile(
-            title: Text("ColorTween的简单使用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => TweenColorDemo()
-                  )
-              );
-            },
-          ),
-          ListTile(
-            title: Text("ReverseTween的简单使用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => ReverseTweenDemo()
-                  )
-              );
-            },
-          ),
-          ListTile(
-            title: Text("CurvedAnimation的简单使用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => CurvedScaleImageDemo()
-                  )
-              );
-            },
-          ),
-
-          ListTile(
-            title: Text("AnimatedWidget的简单使用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => AnimatedWidgetDemo()
-                  )
-              );
-            },
-          ),
-
-          ListTile(
-            title: Text("AnimatedBuilder的简单应用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => GrowTransitionDemo()
-                  )
-              );
-            },
-          ),
-          ListTile(
-            title: Text("组合动画的简单使用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => StaggerDemo()
-                  )
-              );
-            },
-          ),
-          ListTile(
-            title: Text("PositionTransaction的简单使用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => PTDemo()
-                  )
-              );
-            },
-          ),
-
-          ListTile(
-            title: Text("PositionTransaction官方api例子实现"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => PTDemo2()
-                  )
-              );
-            },
-          ),
-          ListTile(
-            title: Text("RotationTransition的简单使用"),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder: (context) => RTDemo()
-                  )
-              );
-            },
-          ),
-        ],
+      body: ListView.builder(
+          itemCount: list.length,
+          itemBuilder: (context,position){
+            return   ListTile(
+              title: Text(list[position].name),
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder:list[position].builder));
+              },
+            );
+          }
       ),
     );
   }
 }
+class _RouterInfo {
+  String name;
+  WidgetBuilder builder;
+  _RouterInfo({this.name, this.builder});
+}
+
+final List<_RouterInfo> list = <_RouterInfo>[
+  _RouterInfo(name: "Tween的简单使用", builder: (context) => ScaleImageDemo()),
+  _RouterInfo(name: "ColorTween的简单使用", builder: (context) => TweenColorDemo()),
+  _RouterInfo(name: "CurvedAnimation的简单使用", builder: (context) => CurvedScaleImageDemo()),
+  _RouterInfo(name: "AnimatedWidget的简单使用", builder: (context) => AnimatedWidgetDemo()),
+  _RouterInfo(name: "AnimatedBuilder的简单应用", builder: (context) => GrowTransitionDemo()),
+  _RouterInfo(name: "组合动画的简单使用", builder: (context) => StaggerDemo()),
+  _RouterInfo(name: "PositionTransaction的简单使用", builder: (context) => PTDemo()),
+  _RouterInfo(name: "RelativeRectTween的简单应用", builder: (context) => BackdropDemo()),
+  _RouterInfo(name: "PositionTransaction官方api例子实现", builder: (context) => PTDemo2()),
+  _RouterInfo(name: "RotationTransition的简单使用", builder: (context) => RTDemo()),
+];
