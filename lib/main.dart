@@ -6,6 +6,7 @@ import 'package:flutter_app/GrowTransitionDemo.dart';
 import 'package:flutter_app/PositionedTransitionDemo.dart';
 import 'package:flutter_app/PositionedTransitionOfficalDemo.dart';
 import 'package:flutter_app/ReverseTweenDemo.dart';
+import 'package:flutter_app/RotationTransitionDemo.dart';
 import 'package:flutter_app/StaggerAnimation.dart';
 import 'package:flutter_app/TweenColorDemo.dart';
 import 'package:flutter_app/drawer.dart';
@@ -131,6 +132,16 @@ class AnimationHome extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(
                       builder: (context) => PTDemo2()
+                  )
+              );
+            },
+          ),
+          ListTile(
+            title: Text("RotationTransition的简单使用"),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(
+                      builder: (context) => RTDemo()
                   )
               );
             },
