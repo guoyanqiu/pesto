@@ -44,6 +44,7 @@ class _RTState extends State<RTDemo> with SingleTickerProviderStateMixin {
               color: Colors.yellow,
             ),
             child: RotationTransition(
+//              turns: controller,///可以打开这个注释，直接利用controller来实现旋转
               turns: animation,
               child: Image.asset("images/beauty3.jpg"),
             ),
