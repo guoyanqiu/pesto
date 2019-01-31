@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/AnimateWidgetDemo.dart';
+import 'package:flutter_app/AnimatedCrossFadeDemo.dart';
 import 'package:flutter_app/CurvedAnimation.dart';
 import 'package:flutter_app/AnimationStatusDemo.dart';
 import 'package:flutter_app/FadeTransitionDemo.dart';
@@ -62,4 +63,5 @@ final List<_RouterInfo> list = <_RouterInfo>[
   _RouterInfo(name: "PositionTransaction官方api例子实现", builder: (context) => PTDemo2()),
   _RouterInfo(name: "RotationTransition的简单使用", builder: (context) => RTDemo()),
   _RouterInfo(name: "FadeTransition的简单使用", builder: (context) => FTDemo()),
+  _RouterInfo(name: "AnimatedCrossFade的简单使用", builder: (context) => AnimatedCrossFadeDemo()),
 ];
