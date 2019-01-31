@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 
-///旋转动画
-class RTDemo extends StatefulWidget {
+///透明度变化:或隐或现的美女
+class FTDemo extends StatefulWidget {
   @override
-  _RTState createState() => _RTState();
+  _FTState createState() => _FTState();
 }
 
-class _RTState extends State<RTDemo> with SingleTickerProviderStateMixin {
+class _FTState extends State<FTDemo> with SingleTickerProviderStateMixin {
   Animation<double> animation; //动画对象
   AnimationController controller; //动画控制器
   @override
   initState() {
     super.initState();
     controller =
-        AnimationController(duration: const Duration(seconds: 6), vsync: this);
-
-    animation = CurvedAnimation(parent: controller, curve:  ElasticOutCurve())    ;
-
-    animation.addStatusListener((status) {
+        AnimationController(duration: const Duration(seconds: 3), vsync: this);
+    controller.addStatusListener((status){
       if (status == AnimationStatus.completed) {
         controller.reverse();
       } else if (status == AnimationStatus.dismissed) {
@@ -33,7 +30,7 @@ class _RTState extends State<RTDemo> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("RotationTransition简单使用")),
+          title: Center(child: Text("FadeTransition简单使用")),
           elevation: 0.0,
         ),
         body: Center(
@@ -41,11 +38,11 @@ class _RTState extends State<RTDemo> with SingleTickerProviderStateMixin {
             width: 400,
             height: 400,
             decoration: BoxDecoration(
-              color: Colors.yellow,
+              color: Colors.grey,
             ),
-            child: RotationTransition(
-              turns: animation,
-              child: Image.asset("images/beauty3.jpg"),
+            child: FadeTransition(
+              opacity: controller,
+              child: Image.asset("images/beauty5.jpg"),
             ),
           ),
         ));
