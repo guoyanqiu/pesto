@@ -38,7 +38,7 @@ class _RTState extends State<RTDemo> with SingleTickerProviderStateMixin {
         ),
         body: Center(
           child: Container(
-            width: 400,
+            width: 1.0,
             height: 400,
             decoration: BoxDecoration(
               color: Colors.yellow,
@@ -46,7 +46,13 @@ class _RTState extends State<RTDemo> with SingleTickerProviderStateMixin {
             child: RotationTransition(
 //              turns: controller,///可以打开这个注释，直接利用controller来实现旋转
               turns: animation,
-              child: Image.asset("images/beauty3.jpg"),
+              child:Container(
+                width: 1.0,
+                height: 400,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                ),
+              ),
             ),
           ),
         ));
