@@ -9,6 +9,7 @@ import 'package:flutter_app/PositionedTransitionDemo.dart';
 import 'package:flutter_app/PositionedTransitionOfficalDemo.dart';
 import 'package:flutter_app/ReverseTweenDemo.dart';
 import 'package:flutter_app/RotationTransitionDemo.dart';
+import 'package:flutter_app/ScaleTransitionDemo.dart';
 import 'package:flutter_app/StaggerAnimation.dart';
 import 'package:flutter_app/TweenColorDemo.dart';
 import 'package:flutter_app/drawer.dart';
@@ -64,4 +65,5 @@ final List<_RouterInfo> list = <_RouterInfo>[
   _RouterInfo(name: "RotationTransition的简单使用", builder: (context) => RTDemo()),
   _RouterInfo(name: "FadeTransition的简单使用", builder: (context) => FTDemo()),
   _RouterInfo(name: "AnimatedCrossFade的简单使用", builder: (context) => AnimatedCrossFadeDemo()),
+  _RouterInfo(name: "ScaleTransition的简单使用", builder: (context) => STDemo()),
 ];

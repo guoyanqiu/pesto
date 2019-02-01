@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 
-///透明度变化:或隐或现的美女
-class FTDemo extends StatefulWidget {
+///图片的放大和缩小
+class STDemo extends StatefulWidget {
   @override
-  _FTState createState() => _FTState();
+  _STState createState() => _STState();
 }
 
-class _FTState extends State<FTDemo> with SingleTickerProviderStateMixin {
+class _STState extends State<STDemo> with SingleTickerProviderStateMixin {
   AnimationController controller; //动画控制器
   @override
   initState() {
     super.initState();
     controller =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
-    controller.addStatusListener((status){
+    controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         controller.reverse();
       } else if (status == AnimationStatus.dismissed) {
         controller.forward();
       }
     });
+
     ///动画开始
     controller.forward();
   }
@@ -28,7 +29,7 @@ class _FTState extends State<FTDemo> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("FadeTransition简单使用")),
+          title: Center(child: Text("ScaleTransition简单使用")),
           elevation: 0.0,
         ),
         body: Center(
@@ -38,9 +39,9 @@ class _FTState extends State<FTDemo> with SingleTickerProviderStateMixin {
             decoration: BoxDecoration(
               color: Colors.grey,
             ),
-            child: FadeTransition(
-              opacity: controller,
-              child: Image.asset("images/beauty5.jpg"),
+            child: ScaleTransition(
+              scale: controller,
+              child: Image.asset("images/beauty7.jpg"),
             ),
           ),
         ));
