@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 ///图片的放大和缩小
-class STDemo extends StatefulWidget {
+class ScaleTDemo extends StatefulWidget {
   @override
   _STState createState() => _STState();
 }
 
-class _STState extends State<STDemo> with SingleTickerProviderStateMixin {
+class _STState extends State<ScaleTDemo> with SingleTickerProviderStateMixin {
   AnimationController controller; //动画控制器
   @override
   initState() {

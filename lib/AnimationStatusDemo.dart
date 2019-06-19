@@ -30,15 +30,17 @@ class _ScaleImageState extends State<ScaleImageDemo>
 ///      }else if(animation.isDismissed){
 ///        controller.forward();
 ///      }
+
+      print("key====="+widget.toStringShort());
     });
 
     //添加状态监听,也可以在addListener里面监听如上面代码
     animation.addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          controller.reverse();//从大到小，然后从小到大循环
-        } else if (status == AnimationStatus.dismissed) {
-          controller.forward();
-        }
+//        if (status == AnimationStatus.completed) {
+//          controller.reverse();//从大到小，然后从小到大循环
+//        } else if (status == AnimationStatus.dismissed) {
+//          controller.forward();
+//        }
       });
 
     controller.forward();///动画开始
@@ -48,6 +50,7 @@ class _ScaleImageState extends State<ScaleImageDemo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key:Key("hello"),
       appBar: AppBar(
         title: Center(child: Text("Tween的简单使用")),
         elevation: 0.0,

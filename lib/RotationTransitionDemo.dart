@@ -15,7 +15,7 @@ class _RTState extends State<RTDemo> with SingleTickerProviderStateMixin {
     controller =
         AnimationController(duration: const Duration(seconds: 6), vsync: this);
 
-    animation = CurvedAnimation(parent: controller, curve:  ElasticOutCurve())    ;
+    animation = CurvedAnimation(parent: controller, curve:  ElasticOutCurve());
 
     animation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {

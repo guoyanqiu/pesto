@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/AnimateWidgetDemo.dart';
+import 'package:flutter_app/AnimatedPadding.dart';
 import 'package:flutter_app/AnimatedCrossFadeDemo.dart';
 import 'package:flutter_app/CurvedAnimation.dart';
 import 'package:flutter_app/AnimationStatusDemo.dart';
+import 'package:flutter_app/Debug.dart';
 import 'package:flutter_app/FadeTransitionDemo.dart';
 import 'package:flutter_app/GrowTransitionDemo.dart';
 import 'package:flutter_app/PositionedTransitionDemo.dart';
 import 'package:flutter_app/PositionedTransitionOfficalDemo.dart';
-import 'package:flutter_app/ReverseTweenDemo.dart';
 import 'package:flutter_app/RotationTransitionDemo.dart';
 import 'package:flutter_app/ScaleTransitionDemo.dart';
+import 'package:flutter_app/SizeTransitionDemo.dart';
 import 'package:flutter_app/StaggerAnimation.dart';
+import 'package:flutter_app/StepperDemo.dart';
+import 'package:flutter_app/SwitchDemo.dart';
 import 'package:flutter_app/TweenColorDemo.dart';
 import 'package:flutter_app/drawer.dart';
 
@@ -19,7 +23,8 @@ void main() => runApp(AnimationDemo());
 class AnimationDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: "Animation Demo", home: AnimationHome());
+//    return MaterialApp(title: "Animation Demo", home: DebugDumpDebugDump());
+    return MaterialApp(title: "Widget update demo", home: AnimationHome());
   }
 }
 
@@ -29,8 +34,9 @@ class AnimationHome extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Animation demo"),
+        title: Text("Animation 初级使用"),
       ),
+//      body:DebugDump(),
       body: ListView.builder(
           itemCount: list.length,
           itemBuilder: (context,position){
@@ -65,5 +71,10 @@ final List<_RouterInfo> list = <_RouterInfo>[
   _RouterInfo(name: "RotationTransition的简单使用", builder: (context) => RTDemo()),
   _RouterInfo(name: "FadeTransition的简单使用", builder: (context) => FTDemo()),
   _RouterInfo(name: "AnimatedCrossFade的简单使用", builder: (context) => AnimatedCrossFadeDemo()),
-  _RouterInfo(name: "ScaleTransition的简单使用", builder: (context) => STDemo()),
+  _RouterInfo(name: "ScaleTransition的简单使用", builder: (context) => ScaleTDemo()),
+  _RouterInfo(name: "SizeTransition的简单使用", builder: (context) => SizeTDemo()),
+  _RouterInfo(name: "AnimatedPadding简单使用", builder: (context) => APDemo()),
+  _RouterInfo(name: "debugDumpApp", builder: (context) => DebugDump()),
+  _RouterInfo(name: "Switch组件的简单使用", builder: (context) => SwitchDemo()),
+  _RouterInfo(name: "Stepper组件的简单使用", builder: (context) => StepperDemo()),
 ];
