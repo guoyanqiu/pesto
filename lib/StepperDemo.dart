@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-
 class StepperDemo extends StatefulWidget {
   @override
   _StepperState createState() => _StepperState();
 }
-
-bool switchValue = false;
-
 class _StepperState extends State<StepperDemo> {
   int current_step = 0;
   List<Step> steps =[
