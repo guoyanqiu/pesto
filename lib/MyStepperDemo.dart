@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/myStepper.dart';
 
-class StepperDemo extends StatefulWidget {
+class MyStepperDemo extends StatefulWidget {
   @override
   _StepperState createState() => _StepperState();
 }
-class _StepperState extends State<StepperDemo> {
+class _StepperState extends State<MyStepperDemo> {
   int current_step = 0;
-  List<Step> steps =[
-    Step(
+  List<MyStep> steps =[
+    MyStep(
       title: Text('stepTitle A'),
       subtitle:Text('disabled状态') ,
-      state: StepState.disabled,
+      state: MyStepState.disabled,
       content: Card(
           color:Colors.red,
           child:SizedBox(
-            child: Center( child: Text("设置state: StepState.disabled，注意标题setTitle A字体颜色为灰色,此时该Step"
+            child: Center( child: Text("设置state: MyStepState.disabled，注意标题setTitle A字体颜色为灰色,此时该Step"
                 "不会响应onStepTapped 事件"),),
             width: 600.0,
             height: 100.0,
           )
       ),
     ),
-    Step(
+    MyStep(
       title: Text('stepTitle B'),
       subtitle:Text('activie为true'),
       isActive: true,
@@ -34,53 +35,53 @@ class _StepperState extends State<StepperDemo> {
           )
       ),
     ),
-    Step(
+    MyStep(
       title: Text('stepTitle C'),
       subtitle:Text('error状态'),
-      state: StepState.error,
+      state: MyStepState.error,
       content:  Card(
           color:Colors.red,
           child:SizedBox(
-            child: Center( child: Text("设置state: StepState.error，表明此步骤错误，为进度条显示红色警告"),),
+            child: Center( child: Text("设置state: MyStepState.error，表明此步骤错误，为进度条显示红色警告"),),
             width: 600.0,
             height: 100.0,
           )
       ),
     ),
-    Step(
+    MyStep(
       title: Text('stepTitle D'),
       subtitle:Text('editing状态'),
-      state: StepState.editing,
+      state: MyStepState.editing,
       content:  Card(
           color:Colors.yellow,
           child:SizedBox(
-            child: Center( child: Text("设置state: StepState.editing，自动设置了编辑状态的铅笔标志"),),
+            child: Center( child: Text("设置state: MyStepState.editing，自动设置了编辑状态的铅笔标志"),),
             width: 600.0,
             height: 50.0,
           )
       ),
     ),
-    Step(
+    MyStep(
       title: Text('stepTitle E'),
       subtitle:Text('indexed状态'),
-      state: StepState.indexed,
+      state: MyStepState.indexed,
       content:  Card(
           color:Colors.pink,
           child:SizedBox(
-            child: Center( child: Text("设置state: StepState.indexed，此状态为默认状态，显示当前步骤的索引"),),
+            child: Center( child: Text("设置state: MyStepState.indexed，此状态为默认状态，显示当前步骤的索引"),),
             width: 600.0,
             height: 50.0,
           )
       ),
     ),
-    Step(
+    MyStep(
       title: Text('stepTitle F'),
       subtitle:Text('complete状态'),
-      state: StepState.complete,
+      state: MyStepState.complete,
       content:  Card(
           color:Colors.pink,
           child:SizedBox(
-            child: Center( child: Text("设置state: StepState.complete，此状态为默认状态，显示对号"),),
+            child: Center( child: Text("设置state: MyStepState.complete，此状态为默认状态，显示对号"),),
             width: 600.0,
             height: 50.0,
           )
@@ -99,11 +100,11 @@ class _StepperState extends State<StepperDemo> {
   }
 
   Widget _createStepper(){
-     return Stepper(
+     return MyStepper(
        controlsBuilder:
            (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
-             return Container(height: 0.0,);
-           },
+         return Container(height: 0.0,);
+       },
          steps:  steps,
          onStepTapped: (step) {///点击某step直接打开
            setState(() {
